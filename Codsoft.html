@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paw Patrol - Pet Care Services</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #ff7e5f;
+      color: white;
+      padding: 1rem;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .logo span {
+      color: #feb47b;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #feb47b;
+    }
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.allaboutpetsprovo.com/wp-content/uploads/2019/09/puppy-introduce-cat.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #ff7e5f;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #feb47b;
+    }
+    .services {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: #ff7e5f;
+    }
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+    .service-card h3 {
+      color: #ff7e5f;
+      margin: 1rem 0;
+    }
+    .events {
+      background-color: #f5f5f5;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .events-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .event-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .event-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .event-content {
+      padding: 1.2rem;
+    }
+    .event-date {
+      color: #ff7e5f;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      text-align: left;
+    }
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: #ff7e5f;
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-section a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-section a:hover {
+      color: #ff7e5f;
+    }
+    .copyright {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #555;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">Paw <span>Patrol</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Your Pet's Best Friend</h1>
+    <p>Professional pet care services to keep your furry friends happy, healthy, and well-trained.</p>
+    <a href="#services" class="btn">Explore Services</a>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-container">
+      <div class="service-card">
+        <h3>Training</h3>
+        <p>Professional training sessions to help your pet learn commands and improve behavior.</p>
+      </div>
+      <div class="service-card">
+        <h3>Day Care</h3>
+        <p>Safe and fun environment for your pets while you're away, with plenty of playtime.</p>
+      </div>
+      <div class="service-card">
+        <h3>Check-Up</h3>
+        <p>Regular health check-ups to ensure your pet stays in optimal condition.</p>
+      </div>
+      <div class="service-card">
+        <h3>Grooming</h3>
+        <p>Complete grooming services including bathing, haircuts, nail trimming, and more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="events" id="events">
+    <h2 class="section-title">Upcoming Events</h2>
+    <div class="events-container">
+      <div class="event-card">
+        <div class="event-image" style="background-image: url('https://i0.wp.com/birklinedobermans.com/wp-content/uploads/2024/05/2023-09-24-13.38.06.jpg?resize=750%2C782&ssl=1');"></div>
+        <div class="event-content">
+          <div class="event-date">June 15, 2025</div>
+          <h3>Pet Adoption Day</h3>
+          <p>Find your new best friend at our adoption event featuring pets from local shelters.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-image" style="background-image: url('https://cfa.org/wp-content/uploads/2024/03/ben-profile1-1.jpg');"></div>
+        <div class="event-content">
+          <div class="event-date">July 8, 2025</div>
+          <h3>Training Workshop</h3>
+          <p>Learn essential training techniques from our expert trainers in this hands-on workshop.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-image" style="background-image: url('https://patmypets.com/wp-content/uploads/2021/11/rottweiler_Dog-breed-age-characteristics-1024x682.jpg');"></div>
+        <div class="event-content">
+          <div class="event-date">August 22, 2025</div>
+          <h3>Pet Health Fair</h3>
+          <p>Free health screenings and consultations with veterinarians for all your pets.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-image" style="background-image: url('https://cdn-images.vetstreet.com/8b/39/125ab4094455abe58a4c44ae1e52/running-with-dog-iStock_000014229275-335sm6313.jpg');"></div>
+          <div class="event-content">
+            <div class="event-date">September 10, 2025</div>
+            <h3>Pets Marathon</h3>
+            <p>Join us for a fun 5K run/walk with your furry companion. All proceeds benefit local animal shelters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>123 Pet Street, Pawville</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Email: info@pawpatrol.com</p>
+      </div>
+      <div class="footer-section">
+        <h3>Hours</h3>
+        <p>Monday - Friday: 8am - 6pm</p>
+        <p>Saturday: 9am - 5pm</p>
+        <p>Sunday: Closed</p>
+      </div>
+      <div class="footer-section">
+        <h3>Social Media</h3>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Paw Patrol. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
